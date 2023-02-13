@@ -1,0 +1,25 @@
+﻿@{
+    if (User.Identity.IsAuthenticated)
+    {
+        Console.WriteLine(User.Claims.FirstOrDefault(c => c.Value == "3"));
+        
+        <form method="post" class="form-inline" asp-page="/Account/Logout">
+            <button type="submit" class="btn btn-link text-dark">Logout</button>
+        </form>
+    }
+    else
+    {
+        <div style="display: flex; justify-content: flex-end">
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-page="/Account/Login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-page="/Account/Register">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+}

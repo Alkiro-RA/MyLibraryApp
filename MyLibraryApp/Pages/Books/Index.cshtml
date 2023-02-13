@@ -1,0 +1,59 @@
+﻿@page
+@model MyLibraryApp.Pages.Books.IndexModel
+@{
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1 class="text-primary">Book List</h1>
+        </div>
+        <div class="col-12">
+            <a asp-page="Create" class="btn btn-primary">
+                Add New Book
+            </a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Index
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    @foreach (var obj in Model.Books)
+    {
+        if (obj.MemberId != 1)
+        {
+            continue;
+        }
+
+        <tbody>
+            <tr>
+                <td width="10%">@obj.Id</td>
+                <td width="38%">@obj.Title</td>
+                <td width="38%">@obj.Author</td>
+                <td width="14%">
+                    <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-secondary mx-2">
+                        Edit
+                    </a>
+                    <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
