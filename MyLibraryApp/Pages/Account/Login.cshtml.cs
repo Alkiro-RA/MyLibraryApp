@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -12,13 +13,15 @@ namespace MyLibraryApp.Pages.Account
     {
         [BindProperty]
         public User User { get; set; }
-        private readonly LibraryDbContext _dbContext;
+        private readonly LibraryDbContext _context;
         private readonly ISecurityContext _security;
+        private readonly IPasswordHasher<User> _passwordHasher;
 
-        public LoginModel(LibraryDbContext dbContext, ISecurityContext security)
+        public LoginModel(LibraryDbContext context, ISecurityContext security, IPasswordHasher<User> passwordHasher)
         {
-            _dbContext = dbContext;
+            _context = context;
             _security = security;
+            _passwordHasher = passwordHasher;
         }
 
         public void OnGet()
@@ -32,7 +35,7 @@ namespace MyLibraryApp.Pages.Account
                 return Page();
             }
 
-            var user = _dbContext
+            var user = _context
                 .User
                 .FirstOrDefault(u => u.Email == User.Email);
 
@@ -42,16 +45,15 @@ namespace MyLibraryApp.Pages.Account
                 return Page();
             }
 
-            if (user.Email == User.Email && user.Password == User.Password)
-            {
-                await HttpContext.SignInAsync("CookieAuthentication", _security.CreateSecurityContext(user));
-                return RedirectToPage("/Index");
-            }
-            else
-            {
+            var result = _passwordHasher.VerifyHashedPassword(user, user.Password, User.Password);
+
+            if (result == PasswordVerificationResult.Failed)
+            {    
                 ViewData["Fail"] = "Wrong email or password.";
                 return Page();
             }
+            await HttpContext.SignInAsync("CookieAuthentication", _security.CreateSecurityContext(user));
+            return RedirectToPage("/Index");
         }
     }
 }

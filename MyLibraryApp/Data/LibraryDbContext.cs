@@ -1,5 +1,6 @@
 ﻿using MyLibraryApp.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace MyLibraryApp.Data
 {

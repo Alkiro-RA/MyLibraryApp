@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MyLibraryApp.Data;
@@ -12,10 +13,12 @@ namespace MyLibraryApp.Pages.Account
         [BindProperty]
         public User User { get; set; }
         private readonly LibraryDbContext _context;
+        private readonly IPasswordHasher<User> _passwordHasher;
 
-        public RegisterAdminModel(LibraryDbContext context)
+        public RegisterAdminModel(LibraryDbContext context, IPasswordHasher<User> passwordHasher)
         {
             _context = context;
+            _passwordHasher = passwordHasher;
         }
 
         public void OnGet()
@@ -31,6 +34,8 @@ namespace MyLibraryApp.Pages.Account
 
             try
             {
+                var hashedPassword = _passwordHasher.HashPassword(User, User.Password);
+                User.Password = hashedPassword;
                 User.RoleId = 2;
                 await _context.User.AddAsync(User);
                 await _context.SaveChangesAsync();
