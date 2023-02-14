@@ -1,0 +1,51 @@
+﻿@page
+@model MyLibraryApp.Pages.Account.InfoModel
+@{
+}
+<h1>Account Information:</h1>
+
+
+<table class="table table-bordered table-striped" style="width:25%">
+    <thead>
+        <tr>
+            <th>
+                <!---->
+            </th>
+            <th>
+                <!---->
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-center" width="10%">Index</td>
+            <td class="text-center" width="38%">@Model.User.Id</td>
+        </tr>
+        <tr>
+            <td class="text-center" width="10%">Name</td>
+            <td class="text-center" width="38%">@Model.User.Name</td>
+        </tr>
+        <tr>
+            <td class="text-center" width="10%">Surname</td>
+            <td class="text-center" width="38%">@Model.User.Surname</td>
+        </tr>
+        <tr>
+            <td class="text-center" width="10%">Email</td>
+            <td class="text-center" width="38%">@Model.User.Email</td>
+        </tr>
+        <tr>
+            <td class="text-center" width="10%">Role</td>
+            @{
+                if (Model.User.RoleId == 2)
+                {
+                    <td class="text-center" width="38%">Admin</td>
+                }
+                else if (Model.User.RoleId == 3)
+                {
+                    <td class="text-center" width="38%">Member</td>
+                }
+            }
+        </tr>
+    </tbody>
+
+</table>
