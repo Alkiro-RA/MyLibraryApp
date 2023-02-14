@@ -6,9 +6,10 @@ namespace MyLibraryApp.Data
 {
     public class LibraryDbContext : DbContext
     {
-        public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options)
+        private readonly IPasswordHasher<User> _passwordHasher;
+        public LibraryDbContext(DbContextOptions<LibraryDbContext> options, IPasswordHasher<User> passwordHasher) : base(options)
         {
-
+            _passwordHasher = passwordHasher;
         }
 
         public DbSet<Book> Book { get; set; }
@@ -25,7 +26,7 @@ namespace MyLibraryApp.Data
                 .IsUnique();
 
             base.OnModelCreating(modelBuilder);
-            new LibraryInitializer(modelBuilder).Seed();
+            new LibraryInitializer(modelBuilder, _passwordHasher).Seed();
         }
     }
 }

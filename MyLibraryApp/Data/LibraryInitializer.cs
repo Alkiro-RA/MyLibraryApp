@@ -5,15 +5,18 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.PortableExecutable;
+using Microsoft.AspNetCore.Identity;
 
 namespace MyLibraryApp.Data
 {
     public class LibraryInitializer
     {
         private readonly ModelBuilder _modelBuilder;
-        public LibraryInitializer(ModelBuilder modelBuilder)
+        private readonly IPasswordHasher<User> _passwordHasher;
+        public LibraryInitializer(ModelBuilder modelBuilder, IPasswordHasher<User> passwordHasher)
         {
             _modelBuilder = modelBuilder;
+            _passwordHasher = passwordHasher;
         }
         public void Seed()
         {
@@ -49,7 +52,7 @@ namespace MyLibraryApp.Data
                 {
                     Id = 1,
                     Email = "library@mylibrary.com",
-                    Password = "library",
+                    Password = Hash("library"),
                     RoleId = 1 // library
                 },
                 new User()
@@ -58,7 +61,7 @@ namespace MyLibraryApp.Data
                     Name = "Adam",
                     Surname = "Nowak",
                     Email = "admin@mylibrary.com",
-                    Password = "admin",
+                    Password = Hash("admin"),
                     RoleId = 2 // admin
                 },
                 new User()
@@ -67,7 +70,7 @@ namespace MyLibraryApp.Data
                     Name = "Jan",
                     Surname = "Kowalski",
                     Email = "member@mylibrary.com",
-                    Password = "member",
+                    Password = Hash("member"),
                     RoleId = 3 // member
                 });
         }
@@ -103,6 +106,13 @@ namespace MyLibraryApp.Data
                     Author = "J.R.R. Tolkien",
                     MemberId = 1
                 });
+        }
+
+        private string Hash(string password)
+        {
+            string hashedPassword = string.Empty;
+            hashedPassword = _passwordHasher.HashPassword(new User(), password);
+            return hashedPassword;
         }
     }
 }

@@ -11,7 +11,7 @@
             <h2 class="text-primary pl-3"> Edit Book</h2>
             <hr />
         </div>
-        <div asp-validation-summary="All"></div> <!-- wyswietla info o bledzie walidacji -->
+        <div class="text-danger" asp-validation-summary="All"></div> <!-- wyswietla info o bledzie walidacji -->
         <div class="mb-3">
             <label asp-for="@Model.Book.Title"></label>
             <input asp-for="@Model.Book.Title" class="form-control" /> <!-- pokazuje wartosc z pola title na stronie -->

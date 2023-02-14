@@ -41,15 +41,17 @@ namespace MyLibraryApp.Pages.Account
 
             if (user == null)
             {
-                ViewData["Fail"] = "Wrong email or password.";
+                ModelState.AddModelError(User.Email,
+                    "Wrong email or password.");
                 return Page();
             }
 
             var result = _passwordHasher.VerifyHashedPassword(user, user.Password, User.Password);
 
             if (result == PasswordVerificationResult.Failed)
-            {    
-                ViewData["Fail"] = "Wrong email or password.";
+            {
+                ModelState.AddModelError(User.Email,
+                    "Wrong email or password.");
                 return Page();
             }
             await HttpContext.SignInAsync("CookieAuthentication", _security.CreateSecurityContext(user));
