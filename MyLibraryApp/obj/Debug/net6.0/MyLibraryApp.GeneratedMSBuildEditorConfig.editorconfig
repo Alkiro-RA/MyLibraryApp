@@ -19,6 +19,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -29,6 +33,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Account/RegisterAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3RlckFkbWluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Books/Create.cshtml]
@@ -61,6 +69,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Shared/_AddBookPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BZGRCb29rUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Shared/_AdminRegistrationPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BZG1pblJlZ2lzdHJhdGlvblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Shared/_LoginStatusPartial.cshtml]

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MyLibraryApp.Data;
@@ -5,6 +6,7 @@ using MyLibraryApp.Model;
 
 namespace MyLibraryApp.Pages.Books
 {
+    [Authorize(Policy = "AdminOnly")]
     public class DeleteModel : PageModel
     {
         [BindProperty]

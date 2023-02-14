@@ -1,0 +1,27 @@
+﻿@page
+@model MyLibraryApp.Pages.Account.IndexModel
+@{
+}
+
+<h1>Account Index Page</h1>
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <a asp-page="/Account/Login" class="btn btn-primary">
+                Account Info
+            </a>
+        </div>
+        <br />
+        <br />
+        <div class="col-12">
+            <a asp-page="/Books/Rent" class="btn btn-primary">
+                Rented Books
+            </a>
+        </div>
+        <br />
+        <br />
+        <div class="col-12">
+            <partial name="_AdminRegistrationPartial" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+﻿@{
+    if (User.Claims.Any(c => c.Value == "2"))    // roleId = 2 -> admin
+    {
+        <a asp-page="/Account/RegisterAdmin" class="btn btn-primary">
+            Register new admin
+        </a>
+    }
+}
