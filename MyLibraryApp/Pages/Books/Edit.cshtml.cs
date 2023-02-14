@@ -33,7 +33,7 @@ namespace MyLibraryApp.Pages.Books
             {
                 _context.Book.Update(Book);
                 await _context.SaveChangesAsync();
-                TempData["success"] = "Book updated successfuly";
+                TempData["Success"] = "Book updated successfuly";
                 return RedirectToPage("Index");
             }
             return Page();

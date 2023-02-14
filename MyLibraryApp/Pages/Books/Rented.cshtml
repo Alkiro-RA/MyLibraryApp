@@ -1,0 +1,49 @@
+﻿@page
+@model MyLibraryApp.Pages.Books.RentedModel
+@{
+
+    if (TempData["Success"] != null)
+    {
+        <h5>@TempData["Success"]</h5>
+    }
+}
+<h1>Your Rented Books</h1>
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Index
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    @foreach (var obj in Model.Books)
+    {
+        if (obj.MemberId == 1)
+        {
+            continue;
+        }
+
+        <tbody>
+            <tr>
+                <td width="10%">@obj.Id</td>
+                <td width="38%">@obj.Title</td>
+                <td width="38%">@obj.Author</td>
+                <td width="14%">
+                    <form method="post" class="form-inline" asp-page="/Books/Return" asp-route-id="@obj.Id">
+                        <button type="submit" class="btn btn-secondary mx-5">Return</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>

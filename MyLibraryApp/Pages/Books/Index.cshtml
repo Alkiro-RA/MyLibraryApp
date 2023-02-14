@@ -1,33 +1,37 @@
 ﻿@page
 @model MyLibraryApp.Pages.Books.IndexModel
 @{
+    if (TempData["Success"] != null)
+    {
+        <h5>@TempData["Success"]</h5>
+    }
 }
-<h1>Book List</h1>
-<div class="container p-3">
-    <div class="row pt-4">
-        <div class="col-12">
-            <partial name="_AddBookPartial" />
+    <h1>Book List</h1>
+    <div class="container p-3">
+        <div class="row pt-4">
+            <div class="col-12">
+                <partial name="_AddBookPartial" />
+            </div>
         </div>
     </div>
-</div>
 
-<table class="table table-bordered table-striped" style="width:100%">
-    <thead>
-        <tr>
-            <th>
-                Index
-            </th>
-            <th>
-                Title
-            </th>
-            <th>
-                Author
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
-    </thead>
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Index
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Author
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
     @foreach (var obj in Model.Books)
     {
         if (obj.MemberId != 1)
@@ -45,7 +49,7 @@
                         Rent a book
                     </a>
                     @{
-                        if (User.Claims.Any(c => c.Value == "2"))    // roleId = 2 -> admin
+                        if (User.Claims.Any(c => c.Type == "Role") && User.Claims.Any(c => c.Value == "2"))    // roleId = 2 -> admin
                         {
                             <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-secondary mx-2">
                                 Edit

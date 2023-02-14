@@ -14,6 +14,7 @@ namespace MyLibraryApp.MyServices
         {
             var claims = new List<Claim>
             {
+                new Claim(ClaimTypes.Name, user.Id.ToString()),
                 new Claim("Role", user.RoleId.ToString()) // 2 - Admin // 3 - Member
             };
 

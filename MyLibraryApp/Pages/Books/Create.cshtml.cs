@@ -36,7 +36,7 @@ namespace MyLibraryApp.Pages.Books
 
                 await _context.Book.AddAsync(Book);
                 await _context.SaveChangesAsync();
-                TempData["success"] = "Book added successfuly";
+                TempData["Success"] = "Book added successfuly";
                 return RedirectToPage("Index");
             }
             return Page();

@@ -59,6 +59,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcUmVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Books/Rented.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcUmVudGVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Books/Return.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcUmV0dXJuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/alkie/Desktop/MyLibraryApp/MyLibraryApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

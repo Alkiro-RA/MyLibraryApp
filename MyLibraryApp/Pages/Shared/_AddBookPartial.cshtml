@@ -1,6 +1,6 @@
 ﻿<!-- model? -->
 @{
-    if(User.Claims.Any(c => c.Value == "2"))    // roleId = 2 -> admin
+    if (User.Claims.Any(c => c.Type == "Role") && User.Claims.Any(c => c.Value == "2"))    // roleId = 2 -> admin
     {
             <a asp-page="Create" class="btn btn-secondary">
                 Add New Book
