@@ -10,6 +10,6 @@ Spis Treści:
 1. Konfiguracja przed uruchomieniem
 2. Role użytkownika 
 3. Funkcjonalności ogólne
-3.1. Dla roli Member
-3.2. Dla roli Admin
+4. Funkcjonalności Member
+5. Funkcjonalności Admin
 
