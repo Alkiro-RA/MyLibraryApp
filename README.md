@@ -2,11 +2,6 @@
 Dokumentacja aplikacji MyLibraryApp
 
 
-Projekt tworzyła grupa "Obóz Pracy Natalii bez myślnika" w składzie:
-Natalia Chamier Gliszczyńska
-Roger Alkiewicz
-
-
 Spis Treści:
 1. Konfiguracja przed uruchomieniem
 2. Role użytkownika 
@@ -75,5 +70,3 @@ Aplikacja posiada dwie 3 dla użytkowników. Są to "Admin", "Member" i użytkow
 - Konto Member:
   - Email: member@mylibrary.com
   - Hasło: member
-
-  
